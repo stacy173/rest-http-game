@@ -308,7 +308,6 @@ button {
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
 }
 
-/* --- Schemas Layout (מיושר ומסודר ללא צורך בגלגלת) --- */
 .schemas-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -351,7 +350,6 @@ button {
     border-bottom: none;
 }
 
-/* --- Modal Base --- */
 .modal {
     position: fixed; 
     top: 0; left: 0; 
@@ -372,7 +370,7 @@ button {
     border: 1px solid var(--border-color);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     position: relative;
-    overflow-y: auto; /* מאפשר גלגלת רק למודל עצמו אם המסך קטן במיוחד */
+    overflow-y: auto; 
 }
 
 .close-btn { 
