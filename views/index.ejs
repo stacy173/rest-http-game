@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket REST API Game</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Supermarket REST API</h1>
+        <nav>
+            <a href="/">איפוס משחק</a>
+            <a href="#" id="open-schemas-btn">סכמות מסד נתונים</a>
+        </nav>
+    </header>
+
+    <main class="game-container">
+        <script>
+            const gameStages = <%- JSON.stringify(stages) %>;
+        </script>
+
+        <!-- סרגל שלבים צף ומרחף המאפשר ניווט חופשי אחורה וקדימה -->
+        <div class="stage-info">
+            <div class="stages-timeline" id="stages-timeline">
+                <!-- ייווצר דינמית דרך ה-JS -->
+            </div>
+
+            <div class="stage-header-flex">
+                <h2 id="stage-title">שלב 1 מתוך 8</h2>
+                <div class="game-stats">
+                    <span class="stat-badge">ניקוד: <strong id="score-display">0</strong></span>
+                    <span class="stat-badge">ניסיונות: <strong id="attempts-display">0</strong></span>
+                </div>
+            </div>
+            <p id="stage-desc">טוען נתונים...</p>
+        </div>
+
+        <div class="request-builder">
+            <h3>הרכב את הבקשה שלך:</h3>
+            
+            <div class="input-group row">
+                <select id="http-method">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                    <option value="PATCH">PATCH</option>
+                    <option value="DELETE">DELETE</option>
+                </select>
+                <input type="text" id="route-path" placeholder="הזן נתיב (לדוגמה: /api/products?minPrice=10)" dir="ltr">
+            </div>
+
+            <div class="input-group">
+                <label for="request-body">Request Body (JSON):</label>
+                <textarea id="request-body" rows="4" placeholder='{"name": "Strawberry", "price": 10}' dir="ltr"></textarea>
+            </div>
+
+            <button id="send-btn" class="btn-primary">שלח בקשה</button>
+        </div>
+
+        <div id="feedback-area" class="hidden">
+            <div id="feedback-message"></div>
+            
+            <div class="nav-buttons">
+                <button id="prev-stage-btn" class="hidden btn-secondary">לחזור לשלב הקודם</button>
+                <button id="next-stage-btn" class="hidden btn-success">לשלב הבא</button>
+            </div>
+        </div>
+
+        <div class="response-display">
+            <h3>תשובת השרת:</h3>
+            <p>Status: <span id="res-status">-</span></p>
+            <pre id="res-body" dir="ltr">התשובה תופיע כאן...</pre>
+        </div>
+    </main>
+
+    <div id="schemas-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn" id="close-schemas-btn">&times;</span>
+            <iframe src="/schemas" frameborder="0" width="100%" height="450px"></iframe>
+        </div>
+    </div>
+
+    <script src="/js/game.js"></script>
+</body>
+</html>

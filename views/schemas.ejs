@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schemas</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        body { background-color: white; margin: 0; text-align: left; }
+        header { padding: 0.8rem 1rem; text-align: left; }
+        header h1 { font-size: 1.3rem; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Schemas</h1>
+    </header>
+
+    <main class="schemas-container">
+        <% for (const [resource, fields] of Object.entries(schemas)) { %>
+            <div class="schema-card">
+                <h2><%= resource.toUpperCase() %></h2>
+                <ul>
+                    <% for (const [field, type] of Object.entries(fields)) { %>
+                        <li><strong><%= field %>:</strong> <span><%= type %></span></li>
+                    <% } %>
+                </ul>
+            </div>
+        <% } %>
+    </main>
+</body>
+</html>
