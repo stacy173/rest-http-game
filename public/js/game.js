@@ -90,7 +90,6 @@ dom.sendBtn.addEventListener('click', async () => {
     const path = dom.path.value.trim();
     const bodyText = dom.body.value.trim();
 
-    // בדיקה האם השלב הנוכחי דורש Request Body (שלבים 4 ו-5 דורשים Body)
     const currentStageId = gameStages[currentStageIndex].id;
     const isBodyRequiredStage = currentStageId === 4 || currentStageId === 5;
 
